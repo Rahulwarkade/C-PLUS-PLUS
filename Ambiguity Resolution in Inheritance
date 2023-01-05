@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+/*Ambiguity Resolution in Inheritance
+Ambiguity in inheritance can be defined as when one class is derived for two or more base classes then there are chances that the base classes have functions with the same name. So it will confuse derived class to choose from similar name functions. To solve this ambiguity scope resolution operator is used “::”. */
+class Base1
+{
+public:
+   void say(){
+     cout<<"How are you "<<endl;
+   }
+};
+class Base2
+{
+public :
+void say(){
+  cout<<"Sab sahi hai bro "<<endl;
+}
+};
+class Drived : public Base1, public Base2
+{
+   int a;
+   public :
+     void say(){
+       Base1 :: say();
+     }
+};
+class B
+{
+public :
+ void say(){
+   cout<<"Hello world "<<endl;
+ }
+};
+class D : public B
+{
+public :
+  void say(){
+    cout<<"Hello beautiful life "<<endl;
+  }
+};
+int main(){
+  Base1 rah;
+  Base2 rahu;
+  rah.say();
+  rahu.say();
+  Drived rahul;
+  rahul.say();
+  D r;
+  r.say();
+}
